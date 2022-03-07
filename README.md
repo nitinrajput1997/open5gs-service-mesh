@@ -22,3 +22,16 @@ Install open5gs 5G helm chart
 helm -n open5gs install -f values.yaml open5gs ./
 ```
 
+### Access Open5gs UI
+
+**Note:** change svc of web-ui from ClusterIP to NodePort
+
+```bash
+kubectl port-forward -n open5gs podName 3000
+ssh -L localhost:3000:localhost:3000 ubuntu@192.168.5.97
+```
+
+#### Open Browser
+Visit localhost:3000
+**user** - admin 
+**password** - 1423
